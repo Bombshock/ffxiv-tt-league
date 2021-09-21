@@ -1,11 +1,20 @@
 <mat-drawer-container>
     <mat-drawer mode="side" opened>
         <mat-nav-list>
-            <mat-list-item>
-                <a matLine routerLink="/admin/users">Benutzer</a>
+            <mat-list-item routerLinkActive="active">
+                <mat-icon class="active-icon">chevron_right</mat-icon>
+                <a matLine routerLink="/admin/users" routerLinkActive="active">Benutzer</a>
             </mat-list-item>
-            <mat-list-item>
+            <mat-list-item routerLinkActive="active">
+                <mat-icon class="active-icon">chevron_right</mat-icon>
                 <a matLine routerLink="/admin/leagues">Ligen</a>
+            </mat-list-item>
+        </mat-nav-list>
+        <div class="spacer"></div>
+        <mat-nav-list>
+            <mat-list-item>
+                <mat-icon>code</mat-icon>
+                <a matLine href="https://github.com/Bombshock/ffxiv-tt-league" target="_blank"> Code</a>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>

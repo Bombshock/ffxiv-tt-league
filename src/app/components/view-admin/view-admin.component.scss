@@ -16,6 +16,11 @@ mat-drawer-container,
 mat-drawer {
     width: 200px;
     max-height: 100%;
+
+    .spacer {
+        flex: 1;
+        display: flex;
+    }
 }
 
 mat-drawer-content {

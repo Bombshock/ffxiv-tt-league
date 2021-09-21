@@ -92,3 +92,12 @@ app-view-login mat-card {
         padding: 12px !important;
     }
 }
+
+.mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-nav-list mat-list-item:not(.active) .active-icon {
+    display: none;
+}
