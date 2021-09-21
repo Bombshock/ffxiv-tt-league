@@ -1,0 +1,27 @@
+<div mat-dialog-content>
+    <div *ngFor="let game of games" class="game-row">
+        <div class="player">
+            <button mat-icon-button (click)="edit(game, 'player1points', data.player + '\'s punkte:')" [disabled]="game.done && !auth.isAdmin()"
+                *ngIf="auth.isEditor()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            {{ data.player }}
+        </div>
+        <div class="spacer">
+            <span>
+                {{game.player1points != undefined ? game.player1points : '-'}}:{{game.player2points != undefined ?
+                game.player2points : '-'}}
+            </span>
+            <span *ngIf="game.done" style="margin-left: 8px;">
+                ({{ game.player1points - game.player2points }})
+            </span>
+        </div>
+        <div class="enemy">
+            {{ game.enemy }}
+            <button mat-icon-button (click)="edit(game, 'player2points', game.enemy + '\'s punkte:')" [disabled]="game.done && !auth.isAdmin()"
+                *ngIf="auth.isEditor()">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

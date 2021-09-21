@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <div class="disclaimer">Ihr müsst euch nicht registrieren oder einloggen um mitzuspielen!<br/> Dieser Bereich ist nur für die Schiedsrichter.</div>
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>E-Mail</mat-label>
+                <input matInput placeholder="example@mail.de" type="email" cdkFocusInitial [(ngModel)]="email"
+                    name="email" autocomplete="email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Passwort</mat-label>
+                <input matInput placeholder="*******" type="password" [(ngModel)]="pass" name="pass"
+                    autocomplete="current-password">
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+
+        <div *ngIf="isLoading" class="loading-overlay">
+            <mat-spinner></mat-spinner>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <a routerLink="/register">Registrieren</a>
+    </mat-card-actions>
+</mat-card>

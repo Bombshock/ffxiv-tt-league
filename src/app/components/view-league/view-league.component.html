@@ -1,0 +1,58 @@
+<mat-toolbar>
+    <mat-select [(ngModel)]="league" (selectionChange)="selectLeague()"
+        *ngIf="leaguesFiltered.length > 1; else showSingleLeagueName">
+        <mat-option *ngFor="let leagueOption of leaguesFiltered" [value]="leagueOption">
+            {{leagueOption.name}}
+        </mat-option>
+    </mat-select>
+
+    <ng-template #showSingleLeagueName>
+        <span class="flex-spacer">{{league?.name}}</span>
+    </ng-template>
+    
+    <span>Spieltage: {{doneGamesThisLeague}} / {{maxGamesPerLeague}}</span>
+
+    <button mat-raised-button color="primary" (click)="rules()" *ngIf="league && league.rules" class="rules-button">
+        <mat-icon>local_police</mat-icon>
+        Regeln
+    </button>
+</mat-toolbar>
+
+<table mat-table [dataSource]="leagueResults" matSort>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="name-col"> Name </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="showPlayer(element.name)">{{element.name}}</button>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="games">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before"> Spiele </th>
+        <td mat-cell *matCellDef="let element" class="righty"> {{element.games}} / {{maxGamesPerPlayer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="loss">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before" matTooltip="Verloren"> L </th>
+        <td mat-cell *matCellDef="let element" class="righty"> {{element.loss}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="win">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before" matTooltip="Gewonnen"> W </th>
+        <td mat-cell *matCellDef="let element" class="righty"> {{element.win}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="draw">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before" matTooltip="Unentschieden"> D </th>
+        <td mat-cell *matCellDef="let element" class="righty"> {{element.draw}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="points">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before" matTooltip="Punkte">
+            <mat-icon matTooltip="Teilnehmer">emoji_events</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let element" class="righty"> {{element.points}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

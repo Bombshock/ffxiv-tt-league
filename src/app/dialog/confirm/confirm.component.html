@@ -1,0 +1,8 @@
+<h1 mat-dialog-title *ngIf="data.header">{{ data.header }}</h1>
+<div mat-dialog-content>
+    {{ data.body }}
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">{{ data.no || 'Abbrechen' }}</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{ data.yes || 'OK' }}</button>
+</div>

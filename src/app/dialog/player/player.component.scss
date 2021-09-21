@@ -1,0 +1,28 @@
+.game-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgab(255, 255, 255, 0.3);
+    height: 46px;
+    line-height: 46px;
+
+    .enemy {
+        text-align: right;
+    }
+
+    .enemy,
+    .player {
+        width: 200px;
+    }
+
+    .spacer {
+        width: 100px;
+        text-align: center;
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}

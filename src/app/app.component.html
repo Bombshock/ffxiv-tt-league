@@ -1,0 +1,36 @@
+<ng-container *ngIf="auth.init; else showLoading">
+  <mat-toolbar>
+    <button mat-button (click)="home()" class="home-button">TT-Liga</button>
+    <span class="flex-spacer"></span>
+
+    <ng-container *ngIf="auth.isAdmin()">
+      <button mat-icon-button aria-label="admin" (click)="admin()">
+        <mat-icon>admin_panel_settings</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="auth.init">
+      <ng-container *ngIf="auth.user$ | async as user; else showLogin">
+        {{ user.name }}
+        <button mat-icon-button aria-label="logout" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #showLogin>
+        <button mat-icon-button aria-label="login" (click)="login()">
+          <mat-icon>login</mat-icon>
+        </button>
+      </ng-template>
+    </ng-container>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #showLoading>
+  <div class="loading-overlay">
+    <div class="loading-overlay-inner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</ng-template>

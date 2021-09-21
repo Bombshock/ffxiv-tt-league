@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px;
+}
+
+table {
+    width: 100%;
+
+    th {
+        user-select: none;
+
+        width: 100px;
+        &.name-col {
+            width: auto;
+        }
+    }
+}
+
+.righty {
+    text-align: right;
+}
+
+table button.mat-button {
+    margin-left: -16px;
+    width: 100%;
+    text-align: left;
+}
+
+mat-toolbar mat-select {
+    flex: 1;
+}
+
+.flex-spacer {
+    align-items: center;
+    display: flex;
+
+    button {
+        margin: 0 12px;
+    }
+}
+
+.rules-button {
+    margin: 0 0 0 32px;
+}

@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="registerForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" cdkFocusInitial formControlName="name" name="name" autocomplete="name">
+                <mat-error *ngIf="registerForm.controls.name.errors"> Min. 3 Zeichen </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>E-Mail</mat-label>
+                <input matInput placeholder="example@mail.de" type="email" formControlName="email" name="email"
+                    autocomplete="email">
+                <mat-error *ngIf="registerForm.controls.email.errors"> Gültige E-Mail Adresse </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Passwort</mat-label>
+                <input matInput placeholder="*******" type="password" formControlName="pass" name="pass"
+                    autocomplete="new-password">
+                <mat-error *ngIf="registerForm.controls.pass.errors"> Min. 8 Zeichen </mat-error>
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" (click)="register()" [disabled]="!registerForm.valid">Registrieren</button>
+
+        <div *ngIf="isLoading" class="loading-overlay">
+            <mat-spinner></mat-spinner>
+        </div>
+    </mat-card-content>
+</mat-card>
