@@ -33,7 +33,7 @@ export class AuthService {
         if ( !this.init ) {
           setTimeout( () => {
             this.init = true;
-          }, 500 )
+          }, 0 )
         }
         if ( user ) {
           return this.afs.doc<TTUser>( `users/${ user.uid }` ).valueChanges()
