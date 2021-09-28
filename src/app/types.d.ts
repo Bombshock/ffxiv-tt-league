@@ -6,6 +6,7 @@ export type TTLeague = {
     active?: boolean;
     rules?: string;
     archived?: boolean;
+    mode: 'diff' | 'add';
     results: {
         player1: string;
         player2: string;

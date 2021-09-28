@@ -57,7 +57,8 @@ export class ViewAdminLeaguesComponent implements OnInit {
         uid: this.firestore.createId(),
         participants: [],
         rules: '',
-        results: []
+        results: [],
+        mode: 'diff'
       };
       this.save( newLeague );
     }

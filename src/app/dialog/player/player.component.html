@@ -13,7 +13,7 @@
                 game.player2points : '-'}}
             </span>
             <span *ngIf="game.done" style="margin-left: 8px;">
-                ({{ game.player1points - game.player2points }})
+                ({{ data.league.mode == 'diff' ? game.player1points - game.player2points : game.player1points }})
             </span>
         </div>
         <div class="enemy">

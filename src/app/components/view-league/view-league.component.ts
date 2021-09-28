@@ -135,8 +135,13 @@ export class ViewLeagueComponent implements OnInit, OnDestroy {
         map[ game.player1 ].draw++;
       }
 
-      map[ game.player1 ].points += game.player1points - game.player2points;
-      map[ game.player2 ].points += game.player2points - game.player1points;
+      if ( this.league.mode === 'diff' ) {
+        map[ game.player1 ].points += game.player1points - game.player2points;
+        map[ game.player2 ].points += game.player2points - game.player1points;
+      } else {
+        map[ game.player1 ].points += game.player1points;
+        map[ game.player2 ].points += game.player2points;
+      }
 
       map[ game.player1 ].points = Math.round( map[ game.player1 ].points * 10 ) / 10;
       map[ game.player2 ].points = Math.round( map[ game.player2 ].points * 10 ) / 10;

@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100%;
     padding: 32px;
+    overflow-y: auto;
 }
 
 table {
@@ -28,8 +29,11 @@ table button.mat-button {
     text-align: left;
 }
 
-mat-toolbar mat-select {
-    flex: 1;
+mat-toolbar {
+    min-height: 64px;;
+    mat-select {
+        flex: 1;
+    }
 }
 
 .flex-spacer {

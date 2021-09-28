@@ -36,7 +36,7 @@ export class ViewAdminLeagueEditComponent implements OnInit, OnDestroy {
       if ( params.id ) {
         this.leagueSub = this.firestore.doc<TTLeague>( 'leagues/' + params.id ).valueChanges().subscribe( league => {
           this.league = league;
-          console.log( league );
+          this.league.mode = this.league.mode || 'diff';
           this.filterAutoComplete();
         } )
       }
@@ -55,7 +55,6 @@ export class ViewAdminLeagueEditComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    //this.firestore.createId();
   }
 
   public ngOnDestroy(): void {
@@ -108,7 +107,6 @@ export class ViewAdminLeagueEditComponent implements OnInit, OnDestroy {
     } );
 
     dialogRef.afterClosed().subscribe( result => {
-      console.log( result );
       if ( result && this.league ) {
         this.league.archived = true;
         this.save();

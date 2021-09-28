@@ -9,7 +9,7 @@
     <ng-template #showSingleLeagueName>
         <span class="flex-spacer">{{league?.name}}</span>
     </ng-template>
-    
+
     <span>Spieltage: {{doneGamesThisLeague}} / {{maxGamesPerLeague}}</span>
 
     <button mat-raised-button color="primary" (click)="rules()" *ngIf="league && league.rules" class="rules-button">
@@ -48,7 +48,7 @@
 
     <ng-container matColumnDef="points">
         <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="before" matTooltip="Punkte">
-            <mat-icon matTooltip="Teilnehmer">emoji_events</mat-icon>
+            <mat-icon>emoji_events</mat-icon>
         </th>
         <td mat-cell *matCellDef="let element" class="righty"> {{element.points}} </td>
     </ng-container>

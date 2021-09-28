@@ -11,6 +11,19 @@
     <mat-card>
         <mat-card-content>
             <mat-form-field>
+                <mat-label>Modus</mat-label>
+                <mat-select [(ngModel)]="league.mode">
+                    <mat-option value="diff">Differenz - Punkte pro Spiel ergeben sich aus der Differenz</mat-option>
+                    <mat-option value="add">Hinzufügen - Punkte pro Spiel ergeben sich aus den erreichten Siegen
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field>
                 <mat-label>Regeln</mat-label>
                 <textarea matInput cdkTextareaAutosize [(ngModel)]="league.rules" spellcheck="false"
                     [disabled]="league.archived"></textarea>
